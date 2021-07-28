@@ -7,9 +7,20 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js/app.js" defer ></script>
-    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+    <div>
+        <button id="randAct">Click for random activity</button>
+        <h2 id="random"></h2>
+    </div>
+    <label for="activities">Pick how many participants there are:</label>
+    <select name="activities" id="menu">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <input type="submit" id="enterpart" value="enter">
+    </select>
+    <h2 id="randomForMore"></h2>
 </body>
 </html>
