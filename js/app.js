@@ -12,7 +12,6 @@ function seeRandom(response){
 }
 function uhOh(error){
     console.error(error);
-
 }
 randomBtn.addEventListener("click", randomActivity);
 
@@ -34,3 +33,25 @@ function seeForMoreP(response){
 }
 
 activityForMore.addEventListener("click", seeMore);
+//Bonus: tried a text input to display type activity
+let typeBtn = document.getElementById('typeBtn');
+const activityType = ["cooking", "recreation", "social", "diy", "charity", "cooking", "relaxing", "music", "busywork"];
+function actType(){
+    var b = document.getElementById('searchType').value;
+    console.log(b);
+    var c = activityType.indexOf(b);
+    axios.request({
+        method : "GET",
+        url : "http://www.boredapi.com/api/activity?type="+b
+    }).then(typeP).catch(uhOh)
+}
+typeBtn.addEventListener("click", actType);
+var showMoreType = document.getElementById('typeAct');
+function typeP(response){
+    console.log(response);
+    if (response.data.activity !== undefined){
+    showMoreType.innerHTML= response.data.activity;
+    }else{
+    showMoreType.innerHTML= "Not a valid search term";
+    }    
+}
